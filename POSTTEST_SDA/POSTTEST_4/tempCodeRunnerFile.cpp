@@ -180,15 +180,15 @@ void tampilDetail(Kereta *k) {
 }
 
 void tambah(Kereta *arr, int &n) {
-    cout << "\n=== Tambah Data Kereta ===\n";
+    cout << "\nTambah Data Kereta\n";
     cout << "No: "; cin >> (arr + n)->no;
 
     cin.ignore();
-    cout << "Nama Kereta    : "; getline(cin, (arr + n)->nama);
-    cout << "Asal           : "; getline(cin, (arr + n)->asal);
-    cout << "Tujuan         : "; getline(cin, (arr + n)->tujuan);
-    cout << "Jam            : "; getline(cin, (arr + n)->jam);
-    cout << "Harga          : "; cin >> (arr + n)->harga;
+    cout << "Nama Kereta: "; getline(cin, (arr + n)->nama);
+    cout << "Asal: "; getline(cin, (arr + n)->asal);
+    cout << "Tujuan: "; getline(cin, (arr + n)->tujuan);
+    cout << "Jam: "; getline(cin, (arr + n)->jam);
+    cout << "Harga: "; cin >> (arr + n)->harga;
     n++;
 }
 
@@ -482,48 +482,27 @@ int main() {
 
         case 4: {
             int p;
-
-            cout << "\n=================================\n";
-            cout << "         MENU ANTRIAN           \n";
-            cout << "=================================\n";
-            cout << " 1. Tambah Penumpang            \n";
-            cout << " 2. Layani Antrian              \n";
-            cout << " 3. Tampilkan Antrian           \n";
-            cout << " 4. Lihat Antrian Terdepan      \n";
-            cout << "=================================\n";
-            cout << " Pilih Menu : ";
+            cout << "\n+-----------------------------+\n";
+            cout << "|      ANTRIAN (ARRAY)        |\n";
+            cout << "+-----------------------------+\n";
+            cout << "| 1. Tambah Antrian           |\n";
+            cout << "| 2. Proses                   |\n";
+            cout << "| 3. Lihat                    |\n";
+            cout << "| 4. Cek Depan                |\n";
+            cout << "+-----------------------------+\n";
+            cout << " Pilih: ";
             cin >> p;
 
             if (p == 1) {
                 string nama, rute;
-
                 cin.ignore();
-
-                cout << "\n=================================\n";
-                cout << "        INPUT ANTRIAN           \n";
-                cout << "=================================\n";
-
-                cout << " Masukkan Nama  : ";
                 getline(cin, nama);
-
-                cout << " Masukkan Rute  : ";
                 getline(cin, rute);
-
                 enqueue(nama, rute);
             } 
-            else if (p == 2) {
-                dequeue();
-            }
-            else if (p == 3) {
-                tampilQueue();
-            }
-            else if (p == 4) {
-                peekQueue();
-            }
-            else {
-                cout << "\nMenu tidak tersedia!\n";
-            }
-
+            else if (p == 2) dequeue();
+            else if (p == 3) tampilQueue();
+            else if (p == 4) peekQueue();
             break;
         }
 
